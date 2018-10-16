@@ -1,3 +1,9 @@
+dr-valentin-common (0.9.12) bionic; urgency=medium
+
+  * Initial release for bionic
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Tue, 16 Oct 2018 15:56:51 +0200
+
 dr-valentin-common (0.9.2) xenial; urgency=medium
 
   * Include valentin as dependency
