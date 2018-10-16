@@ -2,7 +2,6 @@ Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: dr-valentin-common
 Upstream-Contact: Hector Garcia Huerta <hectorgh@gmail.com>
 		  Raul Rodrigo Segura <raurodse@gmail.com>
-Source: http://svn.lliurex.net/pandora/dr-valentin-common/trunk/
 
 Files: *
 Copyright: Copyleft 2011 Hector Garcia Huerta <hectorgh@gmail.com>
