@@ -1,0 +1,10 @@
+#!/bin/bash
+FOLDER="$1/netstat"
+mkdir ${FOLDER}
+
+netstat -tpnl > ${FOLDER}/listen_tcp
+netstat -upnl > ${FOLDER}/listen_udp
+netstat -tpn > ${FOLDER}/used_tcp
+
+
+

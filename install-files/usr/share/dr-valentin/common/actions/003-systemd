@@ -1,0 +1,8 @@
+#!/bin/bash
+FOLDER="$1/systemd"
+mkdir ${FOLDER}
+
+systemctl status > ${FOLDER}/status
+systemctl --failed > ${FOLDER}/failed
+journalctl --dmesg > ${FOLDER}/dmesg
+journalctl --reverse --since 'today' --no-pager > ${FOLDER}/journalctl

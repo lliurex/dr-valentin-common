@@ -1,0 +1,31 @@
+#!/bin/bash
+FOLDER="$1/system/"
+mkdir ${FOLDER}
+df -h > ${FOLDER}"system-disk"
+lliurex-version > ${FOLDER}"system"
+uname -a >> ${FOLDER}"system"
+lsb_release -a >> ${FOLDER}"system"
+
+lshw >> ${FOLDER}"lshw"
+dmesg >> ${FOLDER}"dmesg"
+lsusb >> ${FOLDER}"lsusb"
+
+free >> ${FOLDER}"memory"
+
+n4d-client -m create_ticket -c NTicketsManager -a $USER
+if [ -e "/run/n4d/tickets/$USER" ]; then
+
+	PASS=$(cat /run/n4d/tickets/$USER)
+	n4d-client -u $USER -p $PASS -m get_var_log -c DrValentinCommon -a ${FOLDER}log $USER
+
+fi
+
+cp /etc/hostname	${FOLDER}
+if [ -e "/net/mirror/llx1306/conf/" ]; then
+	mkdir ${FOLDER}"mirror"
+	cp -r /net/mirror/llx1505/conf ${FOLDER}"mirror/"
+else
+	touch ${FOLDER}"NO_MIRROR_EXISTS"
+fi
+date >> ${FOLDER}"system"
+curl http://lliurex.net/trusty/pool/main/l/lliurex-meta/ | grep lliurex-cdd_ |sed -e "s%.*\(lliurex-cdd_[0-9.]*\).*%\1%g" | sort -u >> ${FOLDER}"system"

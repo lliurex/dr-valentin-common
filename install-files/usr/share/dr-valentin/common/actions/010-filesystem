@@ -1,0 +1,34 @@
+#!/bin/bash
+# Filesystem Check
+FOLDER="$1/filesystem/"
+mkdir $FOLDER
+if [ -e "/net/server-sync/share" ]; then
+	getfacl -p /net/server-sync/share > ${FOLDER}"acls"
+else
+	echo "/net/server-sync/share not exist" >> ${FOLDER}"non_exist_folders"
+fi
+if [ -e "/net/server-sync/share" ]; then
+	getfacl -p /net/server-sync/teachers_share >> ${FOLDER}"acls"
+else
+	echo "/net/server-sync/teachers_share not exist"	 >> ${FOLDER}"non_exist_folders"
+fi
+if [ -e "/net/server-sync/share" ]; then
+	find /net/server-sync/home/ -maxdepth 3 -xtype d -exec getfacl -p {} \; >> ${FOLDER}"acls"	
+else
+	echo "/net/server-sync/home/ not exist"	 >> ${FOLDER}"non_exist_folders"
+fi
+
+ls -l /net	> ${FOLDER}"net"
+
+
+cp -r /var/lib/lliurex-folders ${FOLDER}
+
+cat /proc/mounts > ${FOLDER}"mounted devices"
+
+mount > ${FOLDER}"mount"
+
+ls -la / > ${FOLDER}"list_root"
+
+ls -la /home > ${FOLDER}"list_home"
+
+cat /etc/fstab > ${FOLDER}"dump_fstab"

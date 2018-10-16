@@ -1,0 +1,8 @@
+#!/bin/bash
+FOLDER="$1/hwdetector"
+mkdir ${FOLDER}
+
+valentin -d warning -xf $FOLDER/valentin-hwdetector.tgz
+
+
+

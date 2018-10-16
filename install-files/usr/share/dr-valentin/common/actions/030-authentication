@@ -1,0 +1,8 @@
+#!/bin/bash
+FOLDER="$1/authentication/"
+mkdir ${FOLDER}
+cp -r /etc/pam.d ${FOLDER}
+cp -r /usr/share/pam-configs ${FOLDER}
+cp /etc/ldap.conf ${FOLDER}
+cp /etc/nsswitch.conf ${FOLDER}
+cp -r /etc/sudoers.d ${FOLDER}
