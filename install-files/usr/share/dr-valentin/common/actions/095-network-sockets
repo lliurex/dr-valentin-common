@@ -2,9 +2,10 @@
 FOLDER="$1/netstat"
 mkdir ${FOLDER}
 
-netstat -tpnl > ${FOLDER}/listen_tcp
-netstat -upnl > ${FOLDER}/listen_udp
-netstat -tpn > ${FOLDER}/used_tcp
+#netstat -tpnl > ${FOLDER}/listen_tcp
+ss -tpnl > ${FOLDER}/listen_tcp
+ss -upnl > ${FOLDER}/listen_udp
+ss -tpn > ${FOLDER}/used_tcp
 
 
 
