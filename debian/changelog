@@ -1,3 +1,9 @@
+dr-valentin-common (0.9.14) bionic; urgency=medium
+
+  * Migrated to python3 (except n4d-plugin)
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Fri, 31 Jan 2020 10:14:36 +0100
+
 dr-valentin-common (0.9.13) bionic; urgency=medium
 
   * Replace deprecated eth-tools commands
