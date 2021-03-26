@@ -13,14 +13,17 @@ if len(sys.argv)>1:
 
 		try:
 			c=client.ServerProxy("https://localhost:9779",context=context,allow_none=True)
-			vars=c.get_variables("","VariablesManager")
+			n4dvars=c.get_variables().get('return',None)
 			
-			for var in vars:
+			for var in n4dvars:
 				f.write(str(var)+"\n")
-				for key in vars[var]:
-					f.write("\t"+str(key)+"="+str(vars[var][key])+"\n")
-			
-			
+				try:
+					for key in n4dvars[var]:
+						f.write("\t"+str(key)+"="+str(n4dvars[var][key])+"\n")
+				except:
+					f.write("\t"+str(n4dvars[var])+"\n")
+						
+				
 		except Exception as e:
 			f.write(str(e)+"\n")
 			

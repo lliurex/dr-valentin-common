@@ -1,6 +1,7 @@
 import os
 import shutil
 import pwd
+import n4d.responses
 
 class DrValentinCommon:
 	
@@ -21,11 +22,11 @@ class DrValentinCommon:
 				cmd="chown -R %s:%s '%s'"%(user,user,dst)
 				os.system(cmd)				
 
-			return True
+			return n4d.responses.build_successful_call_response()
 				
 		except Exception as e:
-			print e
-			return False
+			print(str(e))
+			return n4d.responses.build_failed_call_response()
 		
 	#def get_var_log
 

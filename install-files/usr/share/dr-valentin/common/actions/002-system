@@ -12,20 +12,20 @@ lsusb >> ${FOLDER}"lsusb"
 
 free >> ${FOLDER}"memory"
 
-n4d-client -m create_ticket -c NTicketsManager -a $USER
+n4d-client call create_ticket "['$USER']"
 if [ -e "/run/n4d/tickets/$USER" ]; then
 
 	PASS=$(cat /run/n4d/tickets/$USER)
-	n4d-client -u $USER -p $PASS -m get_var_log -c DrValentinCommon -a ${FOLDER}log $USER
+	n4d-client -a https://server:9779 -u $USER -p $PASS call DrValentinCommon.get_var_log "['${FOLDER}log', '$USER']"
 
 fi
 
 cp /etc/hostname	${FOLDER}
-if [ -e "/net/mirror/llx1306/conf/" ]; then
+if [ -e "/net/mirror/llx21/conf/" ]; then
 	mkdir ${FOLDER}"mirror"
-	cp -r /net/mirror/llx1505/conf ${FOLDER}"mirror/"
+	cp -r /net/mirror/llx21/conf ${FOLDER}"mirror/"
 else
 	touch ${FOLDER}"NO_MIRROR_EXISTS"
 fi
 date >> ${FOLDER}"system"
-curl http://lliurex.net/trusty/pool/main/l/lliurex-meta/ | grep lliurex-cdd_ |sed -e "s%.*\(lliurex-cdd_[0-9.]*\).*%\1%g" | sort -u >> ${FOLDER}"system"
+curl http://lliurex.net/focal/pool/main/l/lliurex-meta/ | grep lliurex-cdd_ |sed -e "s%.*\(lliurex-cdd_[0-9.]*\).*%\1%g" | sort -u >> ${FOLDER}"system"

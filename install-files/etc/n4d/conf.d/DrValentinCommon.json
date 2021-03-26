@@ -1,0 +1,14 @@
+{
+	"SETUP":{
+		"type":"python",
+		"path":"DrValentinCommon.py",
+		"class":"DrValentinCommon"
+	},	
+	"METHODS":{
+		"get_var_log":{
+			"allowed_groups":[
+				"*"
+			]
+		}	
+	}
+}
