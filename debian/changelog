@@ -1,3 +1,9 @@
+dr-valentin-common (0.19.14) focal; urgency=medium
+
+  * Initial release for focal
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Fri, 26 Mar 2021 11:08:05 +0100
+
 dr-valentin-common (0.9.14) bionic; urgency=medium
 
   * Migrated to python3 (except n4d-plugin)
