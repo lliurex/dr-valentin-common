@@ -21,11 +21,5 @@ if [ -e "/run/n4d/tickets/$USER" ]; then
 fi
 
 cp /etc/hostname	${FOLDER}
-if [ -e "/net/mirror/llx21/conf/" ]; then
-	mkdir ${FOLDER}"mirror"
-	cp -r /net/mirror/llx21/conf ${FOLDER}"mirror/"
-else
-	touch ${FOLDER}"NO_MIRROR_EXISTS"
-fi
 date >> ${FOLDER}"system"
-curl http://lliurex.net/focal/pool/main/l/lliurex-meta/ | grep lliurex-cdd_ |sed -e "s%.*\(lliurex-cdd_[0-9.]*\).*%\1%g" | sort -u >> ${FOLDER}"system"
+curl http://lliurex.net/jammy/pool/main/l/lliurex-meta/ | grep lliurex-cdd_ |sed -e "s%.*\(lliurex-cdd_[0-9.]*\).*%\1%g" | sort -u >> ${FOLDER}"system"
