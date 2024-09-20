@@ -1,3 +1,9 @@
+dr-valentin-common (0.39.15) noble; urgency=medium
+
+  * Initial release for Noble
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Fri, 20 Sep 2024 10:34:05 +0200
+
 dr-valentin-common (0.29.15) jammy; urgency=medium
 
   * Fixed 002-system action for Jammy
